@@ -1,0 +1,47 @@
+# Acesso permitido para buscadores sérios
+User-agent: Googlebot
+Disallow:
+
+User-agent: Bingbot
+Disallow:
+
+User-agent: DuckDuckBot
+Disallow:
+
+User-agent: Applebot
+Disallow:
+
+# Acesso bloqueado para bots abusivos, spam e scraping
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: Yandex
+Disallow: /
+
+User-agent: Sogou
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+# Regra geral para os demais bots não listados
+User-agent: *
+Disallow:
+
+# Localização do sitemap
+Sitemap: https://www.fartechvanguard.com/sitemap.xml
