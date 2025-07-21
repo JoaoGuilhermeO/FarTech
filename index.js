@@ -1,3 +1,12 @@
+/* HEADER */
+
+const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.nav');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+
 const form = document.querySelector('.form-contato');
 const btn = document.querySelector('.btn-enviar');
 
@@ -28,102 +37,78 @@ setTimeout(() => {
 });
 
 // gotículas
-const canvas = document.getElementById('particle-canvas');
-  const ctx = canvas.getContext('2d');
+(() => {
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
 
-  let width, height;
-  const particles = [];
-  const maxParticles = 120;
-  const maxDistance = 150;
+    let width, height;
+    const particles = [];
+    const maxParticles = 100;
 
-  function resize() {
-    width = window.innerWidth;
-    height = window.innerHeight;
-    canvas.width = width;
-    canvas.height = height;
-  }
-
-  class Particle {
-    constructor() {
-      this.reset();
+    function resize() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
     }
 
-    reset() {
-      this.x = Math.random() * width;
-      this.y = Math.random() * height;
-      this.radius = 2 + Math.random() * 3;
-      this.speedX = (Math.random() - 0.5) * 1.2;
-      this.speedY = (Math.random() - 0.5) * 1.2;
-      this.alpha = 0.15 + Math.random() * 0.15; // opacidade menor
-    }
+    class Particle {
+      constructor() {
+        this.reset();
+      }
 
-    update() {
-      this.x += this.speedX;
-      this.y += this.speedY;
+      reset() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.radius = 1 + Math.random() * 2;
+        this.speedX = (Math.random() - 0.5) * 0.2;
+        this.speedY = (Math.random() - 0.5) * 0.2;
+        this.alpha = 0.1 + Math.random() * 0.3;
+      }
 
-      if (this.x < 0 || this.x > width) this.speedX *= -1;
-      if (this.y < 0 || this.y > height) this.speedY *= -1;
-    }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
 
-    draw() {
-      ctx.beginPath();
-      ctx.fillStyle = `rgba(31, 111, 235, ${this.alpha})`;
-      ctx.shadowColor = `rgba(31, 111, 235, ${this.alpha})`;
-      ctx.shadowBlur = 8;
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fill();
-    }
-  }
-
-  function connectParticles() {
-    for (let i = 0; i < maxParticles; i++) {
-      for (let j = i + 1; j < maxParticles; j++) {
-        const p1 = particles[i];
-        const p2 = particles[j];
-
-        const dx = p1.x - p2.x;
-        const dy = p1.y - p2.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-
-        if (dist < maxDistance) {
-          const lineAlpha = (1 - dist / maxDistance) * 0.2; // linhas mais suaves
-          ctx.beginPath();
-          ctx.strokeStyle = `rgba(31, 111, 235, ${lineAlpha})`;
-          ctx.lineWidth = 1.5;
-          ctx.shadowColor = `rgba(31, 111, 235, ${lineAlpha})`;
-          ctx.shadowBlur = 6;
-          ctx.moveTo(p1.x, p1.y);
-          ctx.lineTo(p2.x, p2.y);
-          ctx.stroke();
-          ctx.closePath();
+        if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
+          this.reset();
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
         }
       }
+
+      draw() {
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(31, 111, 235, ${this.alpha})`; // azul sofisticado
+        ctx.shadowColor = `rgba(31, 111, 235, ${this.alpha})`;
+        ctx.shadowBlur = 4;
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
     }
-  }
 
-  function init() {
-    for (let i = 0; i < maxParticles; i++) {
-      particles.push(new Particle());
+    function init() {
+      for (let i = 0; i < maxParticles; i++) {
+        particles.push(new Particle());
+      }
     }
-  }
 
-  function animate() {
-    ctx.clearRect(0, 0, width, height);
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
 
-    particles.forEach(p => {
-      p.update();
-      p.draw();
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', () => {
+      resize();
     });
 
-    connectParticles();
-
-    requestAnimationFrame(animate);
-  }
-
-  window.addEventListener('resize', () => {
     resize();
-  });
-
-  resize();
-  init();
-  animate();
+    init();
+    animate();
+  })();

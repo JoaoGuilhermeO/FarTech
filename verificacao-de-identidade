@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verificação de Identidade | Fartech Vanguard</title>
+  <link rel="stylesheet" href="estilo-contato.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="logo-fartech.png" alt="Logo Fartech Vanguard" class="logo" />
+      <h1>Fartech Vanguard Technology</h1>
+      <p class="tagline">Unidade Operacional de Investigação e Recuperação</p>
+    </header>
+
+    <main>
+      <section class="alerta">
+        <h2>ATENÇÃO</h2>
+        <p>Esta placa está vinculada a uma operação de campo da <strong>Fartech Vanguard - Investigações</strong>, empresa especializada em <em>investigação corporativa, segurança patrimonial e recuperação de ativos.</em></p>
+        <p>Se você é autoridade ou profissional de segurança pública e está realizando uma abordagem:</p>
+        <ul>
+          <li>Solicite ao condutor <strong>documento oficial com foto</strong>;</li>
+          <li>Envie imediatamente uma mensagem via WhatsApp para confirmar a identidade da pessoa e a legitimidade da operação.</li>
+        </ul>
+        <p>Nosso time está disponível para validação de identidade e suporte institucional.</p>
+      </section>
+
+      <a class="botao-whatsapp" href="https://wa.me/5511914066062" target="_blank">
+        📲 Validar Identidade no WhatsApp
+      </a>
+
+      <p class="observacao">Sigilo e integridade garantidos por protocolos internos da Fartech.</p>
+    </main>
+
+    <footer>
+      <p>© 2025 Fartech Vanguard Technology. Todos os direitos reservados.</p>
+    </footer>
+  </div>
+</body>
+</html>
