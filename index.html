@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" prefix="og: http://ogp.me/ns#">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Fartech Vanguard | Investigação e Tecnologia em Segurança</title>
     <meta name="description" content="Referência nacional em inteligência investigativa, segurança privada e tecnologia tática. Soluções para empresas, advocacia e órgãos públicos.">
-    <meta name="keywords" content="investigação, segurança privada, inteligência corporativa, fartech, vanguard, vigilância, cibersegurança, análise de risco, escolta armada, tecnologia em segurança">
     <meta name="author" content="Fartech Vanguard Technology">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.fartechvanguard.com/">
+
 
     <!-- Estilo -->
     <link rel="stylesheet" href="index.css">
@@ -30,16 +30,16 @@
     <meta name="twitter:site" content="@fartechvanguard">
 
     <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" href="/logo.png">
+    <link rel="apple-touch-icon" href="/logo.png">
+
 
   </head>
 
-  <a href="https://wa.me/5511914066062" class="whatsapp-btn" target="_blank" aria-label="Contato via WhatsApp">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg" alt="WhatsApp" />
-  </a>
   <body>
-    <canvas id="particle-canvas"></canvas>
-
+    <a href="https://wa.me/5511914066062" class="whatsapp-btn" target="_blank" aria-label="Contato via WhatsApp">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg" alt="WhatsApp" width="40" height="40" loading="lazy" />
+    </a>
     <header class="site-header">
       <div class="container">
         <div class="logo">
@@ -58,6 +58,8 @@
         </nav>
       </div>
     </header>
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
 
     <section class="hero" id="hero">
       <div class="hero-content">
@@ -171,7 +173,7 @@
           <!-- Evita spam -->
           <input type="hidden" name="_captcha" value="false">
           <!-- Redirecionamento opcional pós-envio -->
-          <!-- <input type="hidden" name="_next" value="https://fartechvanguard.com/obrigado.html"> -->
+          <input type="hidden" name="_next" value="https://fartechvanguard.com/obrigado.html">
 
           <div class="campo-form">
             <label for="nome">Nome de Identificação</label>
@@ -190,6 +192,14 @@
 
           <button type="submit" class="btn-enviar">Enviar Missão</button>
         </form>
+        <!-- Modal de agradecimento -->
+        <div id="modalAgradecimento" class="modal hidden">
+          <div class="modal-content">
+            <h2>✅ Missão Recebida</h2>
+            <p>Obrigado por sua comunicação segura. Analisaremos com prioridade.</p>
+            <button onclick="fecharModal()">Retornar à base</button>
+          </div>
+        </div>
 
       </div>
     </section>
@@ -208,8 +218,13 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; <?= date("Y") ?> Fartech Vanguard Technology. Todos os direitos reservados.</p>
+        <p>&copy; <span id="ano"></span> Fartech Vanguard Technology.</p>
       </div>
+      <div itemscope itemtype="https://schema.org/Organization">
+        <span itemprop="name">Fartech Vanguard Technology</span>
+        <link itemprop="url" href="https://www.fartechvanguard.com">
+      </div>
+
     </footer>
 
     <script src="index.js"></script>
