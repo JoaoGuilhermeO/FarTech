@@ -139,3 +139,11 @@ function fecharModal() {
 
 // footer
 document.getElementById('ano').textContent = new Date().getFullYear();
+
+// desc bluhat
+const bluehatLink = document.getElementById('bluehat-link');
+  const bluehatDesc = document.getElementById('bluehat-descricao');
+
+  bluehatLink.addEventListener('click', () => {
+    bluehatDesc.style.display = bluehatDesc.style.display === 'none' ? 'block' : 'none';
+  });
