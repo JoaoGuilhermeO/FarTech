@@ -40,19 +40,17 @@ form.addEventListener('submit', function (e) {
       body: formData
     })
     .then(response => {
-      if (response.ok) {
+      if (response.status === 200 || response.status === 302) {
         modal.classList.remove('hidden');
         form.reset();
-        btn.innerText = 'Enviar Missão';
-        btn.disabled = false;
       } else {
         alert('Algo deu errado. Tente novamente.');
-        btn.innerText = 'Enviar Missão';
-        btn.disabled = false;
       }
+      btn.innerText = 'Enviar Missão';
+      btn.disabled = false;
     })
     .catch(() => {
-      alert('Erro na comunicação. Verifique sua conexão.');
+      alert('Erro inesperado. Tente novamente mais tarde.');
       btn.innerText = 'Enviar Missão';
       btn.disabled = false;
     });
@@ -63,6 +61,7 @@ function fecharModal() {
   modal.classList.add('hidden');
   window.location.href = 'index.html';
 }
+
 
 // === GOTÍCULAS (PARTÍCULAS) ===
 (() => {
