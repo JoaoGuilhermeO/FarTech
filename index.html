@@ -30,9 +30,13 @@
     <meta name="twitter:site" content="@fartechvanguard">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/logo.png">
-    <link rel="apple-touch-icon" href="/logo.png">
-
+    <link rel="icon" type="image/png" href="/logo-fartech.png">
+    <link rel="apple-touch-icon" href="/logo-fartech.png">
+    <script>
+      if (location.hostname === "fartech.pages.dev") {
+        location.href = "https://www.fartechvanguard.com";
+      }
+    </script>
 
   </head>
 
@@ -220,10 +224,10 @@
       <div class="footer-bottom">
         <p>&copy; <span id="ano"></span> Fartech Vanguard Technology.</p>
       </div>
-      <div itemscope itemtype="https://schema.org/Organization">
+      <!-- <div itemscope itemtype="https://schema.org/Organization">
         <span itemprop="name">Fartech Vanguard Technology</span>
         <link itemprop="url" href="https://www.fartechvanguard.com">
-      </div>
+      </div> -->
 
     </footer>
 
