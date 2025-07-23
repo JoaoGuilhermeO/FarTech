@@ -166,17 +166,18 @@
     <section class="secao-contato" id="contato">
       <div class="container">
         <h2 class="titulo-secao">Canal de Acesso</h2>
-        <p class="descricao-secao">Operações confidenciais? Fale direto com nossa unidade de inteligência. Todos os contatos são protegidos por protocolo BlueHat.</p>
+        <p class="descricao-secao">
+          Operações confidenciais? Fale direto com nossa unidade de inteligência.
+          Todos os contatos são protegidos por protocolo BlueHat.
+        </p>
 
-        <form class="form-contato" action="https://formsubmit.co/2cdd402b599fb67781e59a243de17e15" method="POST">
-          <!-- Evita spam -->
-          <input type="hidden" name="_captcha" value="false">
-          <!-- Redirecionamento opcional pós-envio -->
-          <input type="hidden" name="_next" value="https://fartechvanguard.com/obrigado.html">
+        <form class="form-contato" action="https://getform.io/f/awnwjqkb" method="POST">
+          <!-- Honeypot para evitar spam -->
+          <input type="hidden" name="_gotcha" style="display:none !important">
 
           <div class="campo-form">
             <label for="nome">Nome de Identificação</label>
-            <input type="text" id="nome" name="nome" placeholder="Ex: Operador Lima" required>
+            <input type="text" id="nome" name="name" placeholder="Ex: Operador Lima" required>
           </div>
 
           <div class="campo-form">
@@ -186,7 +187,7 @@
 
           <div class="campo-form">
             <label for="mensagem">Relato ou Missão</label>
-            <textarea id="mensagem" name="mensagem" rows="5" placeholder="Descreva o cenário ou a demanda" required></textarea>
+            <textarea id="mensagem" name="message" rows="5" placeholder="Descreva o cenário ou a demanda" required></textarea>
           </div>
 
           <button type="submit" class="btn-enviar">Enviar Missão</button>
